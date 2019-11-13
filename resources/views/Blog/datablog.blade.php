@@ -40,9 +40,48 @@
 
       <!-- Main content -->
       <div class="content">
-        <h3>Data Blog</h3>
-          {{--isi--}}
-      </div>
+      <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title" align="center">Data Mahasiswa</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table class="table table-bordered">
+                <thead>
+                <tr>
+                  <th colspan="1"><center>Nama</center></th>
+                  <th colspan="4" style="width: 25%"><center>Aksi</center></th>
+                </tr>
+                </thead>
+                  @foreach ($varAngka as $isinya)
+                  <tr>
+                    <td>{{$isinya}}</td>
+                    <td>
+                      <a href="{{$isinya}}">
+                      <i class="fas fa-eye"> Lihat | </i>
+                      </a>
+            
+                      <a href="{{$isinya}}">
+                      <i class="fas fa-edit purple"> Edit | </i>
+                      </a>
+ 
+                      <a href="{{$isinya}}">
+                      <i class="fas fa-trash-alt red"> Hapus</i>
+                      </a>
+                    </td>
+                  </tr>
+                  @endforeach
+                </table>
+              </div> 
+              </div>
+              </div>    
+              </div>
+              </div>
+              </div>
       <!-- /.content -->
       </div>
       <!-- /.content-wrapper -->
