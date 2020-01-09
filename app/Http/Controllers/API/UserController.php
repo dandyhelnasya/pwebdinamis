@@ -2,8 +2,8 @@
 namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Blog;
-class BlogController extends Controller
+use App\User;
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -12,7 +12,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return Blog::all();
+        return User::all();
     }
     /**
      * Store a newly created resource in storage.
@@ -23,19 +23,15 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'kategori_id'  => 'required|integer',
-            'user_id' => 'required|integer',
-            'judul' => 'required|string|max:30',
-            'isi' => 'required|string|max:50',
-            'jbaca' => 'required|integer',
+            'name'  => 'required|string|max:30',
+            'email' => 'required|string|max:30',
+            'password' => 'required|string|max:10',
         ]);
-        return Blog::create([
+        return User::create([
             'id' => $request['id'],
-            'kategori_id' => $request['kategori_id'],
-            'user_id' => $request['user_id'],
-            'judul' => $request['judul'],
-            'isi' => $request['isi'],
-            'jbaca' => $request['jbaca'],
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => $request['password'],
         ]);
     }
     /**
@@ -57,8 +53,8 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $blog = Blog::findOrFail($id);
-        $blog->update($request->all());
+        $users = User::findOrFail($id);
+        $users->update($request->all());
     }
     /**
      * Remove the specified resource from storage.
@@ -68,7 +64,7 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        $blog = Blog::FindOrFail($id);
-        $blog->delete();
+        $users = User::FindOrFail($id);
+        $users->delete();
     }
 }

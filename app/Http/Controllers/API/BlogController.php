@@ -1,8 +1,11 @@
 <?php
+
 namespace App\Http\Controllers\API;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Blog;
+
 class BlogController extends Controller
 {
     /**
@@ -14,6 +17,7 @@ class BlogController extends Controller
     {
         return Blog::all();
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -29,6 +33,7 @@ class BlogController extends Controller
             'isi' => 'required|string|max:50',
             'jbaca' => 'required|integer',
         ]);
+
         return Blog::create([
             'id' => $request['id'],
             'kategori_id' => $request['kategori_id'],
@@ -38,6 +43,7 @@ class BlogController extends Controller
             'jbaca' => $request['jbaca'],
         ]);
     }
+
     /**
      * Display the specified resource.
      *
@@ -48,6 +54,7 @@ class BlogController extends Controller
     {
         //
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -57,9 +64,9 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $blog = Blog::findOrFail($id);
-        $blog->update($request->all());
+        //
     }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -68,7 +75,6 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        $blog = Blog::FindOrFail($id);
-        $blog->delete();
+        //
     }
 }
